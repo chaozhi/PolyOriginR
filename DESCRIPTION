@@ -1,0 +1,16 @@
+Package: PolyOriginR
+Title: R wrapper for PolyOrigin.jl
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Chaozhi",
+           family = "Zheng",
+           role = c("aut", "cre"),
+           email = "chaozhi@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: R wrapper for PolyOrigin.jl
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
+RoxygenNote: 7.0.2
