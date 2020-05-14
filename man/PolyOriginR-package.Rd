@@ -4,12 +4,12 @@
 \name{PolyOriginR-package}
 \alias{PolyOriginR}
 \alias{PolyOriginR-package}
-\title{PolyOriginR: What the Package Does (One Line, Title Case)}
+\title{PolyOriginR: R wrapper for using PolyOrigin.jl}
 \description{
-What the package does (one paragraph).
+Haplotype reconstruction in polyploid multiparetnal populations
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Chaozhi Zheng \email{chaozhi.zheng@wur.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
 
 }
 \keyword{internal}
