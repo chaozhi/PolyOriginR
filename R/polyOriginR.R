@@ -69,6 +69,7 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   workdir2 <- paste0("\"",workdir,"\"")
   recomrate2 <- format(recomrate,nsmall=3)
   # bool options
+  isparallel2<- if (isparallel) "true" else "false"
   delmarker2<- if (delmarker) "true" else "false"
   refinemap2<- if (refinemap) "true" else "false"
   refineorder2<- if (refineorder) "true" else "false"
@@ -77,7 +78,7 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   verbose2 <- if (verbose) "true" else "false"
   opt <- paste("--epsilon",epsilon,"--seqerr",seqerr,
     "--chrpairing_phase",chrpairing_phase,"--chrpairing",chrpairing,
-    "--chrsubset",chrsubset,"--isparallel",isparallel,
+    "--chrsubset",chrsubset,"--isparallel",isparallel2,
     "--delmarker",delmarker2,"--delsiglevel",delsiglevel,
     "--maxstuck",maxstuck,"--maxiter",maxiter,
     "--minrun",minrun,"--maxrun",maxrun,
