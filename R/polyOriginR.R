@@ -9,18 +9,18 @@
 #' @param chrpairing_phase chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22
 #' @param chrpairing chromosome pairing in offspring decoding, with 22 being only bivalent formations and 44 being bivalent and quadrivalent formations, Default: 44
 #' @param chrsubset subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'
-#' @param isparallel if true, multicore computing over chromosomes, Default: FALSE
-#' @param delmarker if true, delete markers during parental phasing, Default: TRUE
+#' @param isparallel if TRUE, multicore computing over chromosomes, Default: FALSE
+#' @param delmarker if TRUE, delete markers during parental phasing, Default: TRUE
 #' @param delsiglevel significance level for deleting markers, Default: 0.05
 #' @param maxstuck the max number of consecutive iterations that are rejected in a phasing run, Default: 5
 #' @param maxiter the max number of iterations in a phasing run, Default: 30
 #' @param minrun if the min number of phasing runs that are at the same local maximimum or have the same parental phases reaches minrun, phasing algorithm will stop before reaching the maxrun, Default: 3
 #' @param maxrun the max number of phasing runs, Default: 10
-#' @param byparent if true, update parental phases parent by parent, Default: TRUE
+#' @param byparent if TRUE, update parental phases parent by parent, Default: TRUE
 #' @param refhapfile reference haplotype file for setting absolute parental phases, Default: 'nothing'
 #' @param correctthreshold a candidate marker is selected for parental error correction if the fraction of offspring genotypic error >= correctthreshold, Default: 0.15
-#' @param refinemap if true, refine marker map, Default: FALSE
-#' @param refineorder if true, refine marker mordering, valid only if refinemap=true, Default: FALSE
+#' @param refinemap if TRUE, refine marker map, Default: FALSE
+#' @param refineorder if TRUE, refine marker mordering, valid only if refinemap=TRUE, Default: FALSE
 #' @param maxwinsize max size of sliding windown in map refinning, Default: 50
 #' @param inittemperature initial temperature of simulated annealing in map refinning, Default: 4
 #' @param coolingrate cooling rate of annealing temperature in map refinning, Default: 0.5
