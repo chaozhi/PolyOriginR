@@ -2,7 +2,7 @@
 % Please edit documentation in R/polyOriginR.R
 \name{polyOriginR}
 \alias{polyOriginR}
-\title{FUNCTION_TITLE}
+\title{polyOriginR}
 \usage{
 polyOriginR(
   genofile,
@@ -16,35 +16,42 @@ polyOriginR(
 )
 }
 \arguments{
-\item{genofile}{PARAM_DESCRIPTION}
+\item{genofile}{Input genotypic data for parents and offspring}
 
-\item{pedfile}{PARAM_DESCRIPTION}
+\item{pedfile}{Input breeding pedigree}
 
-\item{julia_home}{PARAM_DESCRIPTION, Default: ''}
+\item{julia_home}{Path to julia.exe, Default: ''}
 
-\item{isphysmap}{PARAM_DESCRIPTION, Default: FALSE}
+\item{isphysmap}{TRUE, if input marker map in genofile is physical map, Default: FALSE}
 
-\item{recomrate}{PARAM_DESCRIPTION, Default: 1}
+\item{recomrate}{Recombination rate in cM/Mpb, Default: 1}
 
-\item{workdir}{PARAM_DESCRIPTION, Default: getwd()}
+\item{workdir}{Work directory, Default: getwd()}
 
-\item{outstem}{PARAM_DESCRIPTION, Default: 'outstem'}
+\item{outstem}{Stem of output files, Default: 'outstem'}
 
-\item{verbose}{PARAM_DESCRIPTION, Default: TRUE}
+\item{verbose}{TURE, if print details, Default: TRUE}
 }
 \value{
-OUTPUT_DESCRIPTION
+Return 0 if sucess, and save four output files:
+log file: outstem.log,
+outstem_parentphased.csv
+outstem_parentphased_corrected.csv (if there exist detected errors)
+outstem_genoprob.csv, and
+outstem_polyancestry.csv.
 }
 \description{
-FUNCTION_DESCRIPTION
+Haplotype reconstruction in polyploid multiparental populations
 }
 \details{
 DETAILS
+PolyOriginR is implemented via PolyOriginCmd that using PolyOrigin.jl by a command line.
 }
 \examples{
 \dontrun{
 if(interactive()){
  #EXAMPLE1
+ polyOriginR("geno.csv","ped.csv",julia_home="C:/path/tojulia",workdir="workdir")
  }
 }
 }

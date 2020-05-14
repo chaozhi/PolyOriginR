@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-PolyOriginR is a wrapper for using PolyOrigin.jl, for haplotye reconstruction in polyploid multiparental pouplations. 
+PolyOriginR is a wrapper for using PolyOrigin.jl (https://github.com/chaozhi/PolyOrigin.jl), for haplotye reconstruction in polyploid multiparental pouplations. 
 
 ## Installation
 
@@ -19,8 +19,7 @@ devtools::install_github("chaozhi/PolyOriginR")
 
 ``` r
 library(PolyOriginR)
-polyOriginR("geno.csv","ped.csv",
-  julia_home="C:/path/to/julia/bin",workdir="workdir")
+polyOriginR("geno.csv","ped.csv",julia_home="C:/path/to/julia/bin",workdir="workdir")
 ```
 Here julia_home is where julia.exe is located, and "workdir" is the directory for input and output files.
 

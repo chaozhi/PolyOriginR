@@ -9,7 +9,7 @@
 Haplotype reconstruction in polyploid multiparetnal populations
 }
 \author{
-\strong{Maintainer}: Chaozhi Zheng \email{chaozhi.zheng@wur.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Chaozhi Zheng \email{chaozhi.zheng@wur.nl} (\href{https://orcid.org/0000-0001-6030-3933}{ORCID})
 
 }
 \keyword{internal}

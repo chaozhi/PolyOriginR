@@ -1,16 +1,22 @@
 
-#' @title FUNCTION_TITLE
-#' @description FUNCTION_DESCRIPTION
-#' @param genofile PARAM_DESCRIPTION
-#' @param pedfile PARAM_DESCRIPTION
-#' @param julia_home PARAM_DESCRIPTION, Default: ''
-#' @param isphysmap PARAM_DESCRIPTION, Default: FALSE
-#' @param recomrate PARAM_DESCRIPTION, Default: 1
-#' @param workdir PARAM_DESCRIPTION, Default: getwd()
-#' @param outstem PARAM_DESCRIPTION, Default: 'outstem'
-#' @param verbose PARAM_DESCRIPTION, Default: TRUE
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
+#' @title polyOriginR
+#' @description Haplotype reconstruction in polyploid multiparental populations
+#' @param genofile Input genotypic data for parents and offspring
+#' @param pedfile Input breeding pedigree
+#' @param julia_home Path to julia.exe, Default: ''
+#' @param isphysmap TRUE, if input marker map in genofile is physical map, Default: FALSE
+#' @param recomrate Recombination rate in cM/Mpb, Default: 1
+#' @param workdir Work directory, Default: getwd()
+#' @param outstem Stem of output files, Default: 'outstem'
+#' @param verbose TURE, if print details, Default: TRUE
+#' @return Return 0 if sucess, and save four output files: 
+#' log file: outstem.log, 
+#' outstem_parentphased.csv,
+#' outstem_parentphased_corrected.csv (if there exist detected errors),
+#' outstem_genoprob.csv, and
+#' outstem_polyancestry.csv.
+#' @details 
+#' PolyOriginR is implemented via PolyOriginCmd that using PolyOrigin.jl by a command line.
 #' @examples 
 #' \dontrun{
 #' if(interactive()){

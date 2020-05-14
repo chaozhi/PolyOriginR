@@ -8,7 +8,7 @@ Authors@R:
            email = "chaozhi.zheng@wur.nl",
            comment = c(ORCID = "https://orcid.org/0000-0001-6030-3933"))
 Description: Haplotype reconstruction in polyploid multiparetnal populations
-License: `use_gpl3_license()` 
+License: GPL 3.0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
