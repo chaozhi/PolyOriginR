@@ -84,8 +84,8 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
     "--correctthreshold",correctthreshold,
     "--refinemap",refinemap2,"--refineorder",refineorder2,
     "--maxwinsize",maxwinsize,"--inittemperature",inittemperature,
-    "-coolingrate",coolingrate,"-stripdis",stripdis,
-    "-maxepsilon",maxepsilon,"-skeletonsize",skeletonsize,
+    "--coolingrate",coolingrate,"--stripdis",stripdis,
+    "--maxepsilon",maxepsilon,"--skeletonsize",skeletonsize,
     "--isphysmap",isphysmap2,"--recomrate",recomrate2,
     "-w",workdir2,"-o",outstem,"-v",verbose2)
   cmdstr <- paste(juliaexe, mainfile,"-g",genofile2,"-p",pedfile2, opt)
