@@ -15,6 +15,7 @@
 #' \dontrun{
 #' if(interactive()){
 #'  #EXAMPLE1
+#'  polyOriginR("geno.csv","ped.csv",julia_home="C:/path/tojulia",workdir="workdir")
 #'  }
 #' }
 #' @rdname polyOriginR
