@@ -8,7 +8,7 @@ PolyOriginR is a wrapper for using PolyOrigin.jl (https://github.com/chaozhi/Pol
 
 ## Installation
 
-You can install the development version of PolyOriginR from GitHub with:
+First download and install Julia available at https://julialang.org/. Then install the development version of PolyOriginR from GitHub with:
 
 ``` r
 # install.packages("devtools")
