@@ -14,7 +14,6 @@ polyOriginR(
   chrpairing = 44,
   chrsubset = "nothing",
   isparallel = FALSE,
-  delmarker = TRUE,
   delsiglevel = 0.05,
   maxstuck = 5,
   maxiter = 30,
@@ -55,9 +54,7 @@ polyOriginR(
 
 \item{chrsubset}{subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'}
 
-\item{isparallel}{if true, multicore computing over chromosomes, Default: FALSE}
-
-\item{delmarker}{if true, delete markers during parental phasing, Default: TRUE}
+\item{isparallel}{if TRUE, multicore computing over chromosomes, Default: FALSE}
 
 \item{delsiglevel}{significance level for deleting markers, Default: 0.05}
 
@@ -69,15 +66,15 @@ polyOriginR(
 
 \item{maxrun}{the max number of phasing runs, Default: 10}
 
-\item{byparent}{if true, update parental phases parent by parent, Default: TRUE}
+\item{byparent}{if TRUE, update parental phases parent by parent, Default: TRUE}
 
 \item{refhapfile}{reference haplotype file for setting absolute parental phases, Default: 'nothing'}
 
 \item{correctthreshold}{a candidate marker is selected for parental error correction if the fraction of offspring genotypic error >= correctthreshold, Default: 0.15}
 
-\item{refinemap}{if true, refine marker map, Default: FALSE}
+\item{refinemap}{if TRUE, refine marker map, Default: FALSE}
 
-\item{refineorder}{if true, refine marker mordering, valid only if refinemap=true, Default: FALSE}
+\item{refineorder}{if TRUE, refine marker mordering, valid only if refinemap=TRUE, Default: FALSE}
 
 \item{maxwinsize}{max size of sliding windown in map refinning, Default: 50}
 
@@ -117,6 +114,6 @@ PolyOriginR is implemented via PolyOriginCmd that using PolyOrigin.jl by a comma
 }
 \examples{
 \dontrun{
-  polyOriginR("geno.csv","ped.csv",julia_home="C:/path/tojulia",workdir="workdir")
+  polyOriginR("geno.csv","ped.csv",julia_home="C:/path/to/bin",workdir="workdir")
 }
 }

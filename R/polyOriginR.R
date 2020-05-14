@@ -41,7 +41,7 @@
 #' PolyOriginR is implemented via PolyOriginCmd that using PolyOrigin.jl by a command line.
 #' @examples 
 #' \dontrun{
-#'   polyOriginR("geno.csv","ped.csv",julia_home="C:/path/tojulia",workdir="workdir")
+#'   polyOriginR("geno.csv","ped.csv",julia_home="C:/path/to/bin",workdir="workdir")
 #' }
 #' @rdname polyOriginR
 #' @export 
