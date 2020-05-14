@@ -38,12 +38,12 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   genofile2 <- paste0("\"",genofile2,"\"")
   pedfile2 <- paste0("\"",pedfile2,"\"")
   # outstem2 <- paste0("\"",outstem,"\"")
-  # workdir2 <- paste0("\"",workdir,"\"")
+  workdir2 <- paste0("\"",workdir,"\"")
   isphysmap2 <- if (isphysmap) "true" else "false"
   verbose2 <- if (verbose) "true" else "false"
   recomrate2 <- format(recomrate,nsmall=3)
   opt1 <- paste("--isphysmap",isphysmap2,"--recomrate",recomrate2,
-                "-w",workdir,"-o",outstem,"-v",verbose2);
+                "-w",workdir2,"-o",outstem,"-v",verbose2);
   cmdstr <- paste(juliaexe, mainfile,"-g",genofile2,"-p",pedfile2, opt1)
   shell(cmdstr)
   logfile <-file.path(workdir,paste0(outstem,".log"))
