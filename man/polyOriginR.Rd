@@ -8,6 +8,29 @@ polyOriginR(
   genofile,
   pedfile,
   julia_home = "",
+  epsilon = 0.01,
+  seqerr = 0.001,
+  chrpairing_phase = 22,
+  chrpairing = 44,
+  chrsubset = "nothing",
+  isparallel = FALSE,
+  delmarker = TRUE,
+  delsiglevel = 0.05,
+  maxstuck = 5,
+  maxiter = 30,
+  minrun = 3,
+  maxrun = 10,
+  byparent = TRUE,
+  refhapfile = "nothing",
+  correctthreshold = 0.15,
+  refinemap = FALSE,
+  refineorder = FALSE,
+  maxwinsize = 50,
+  inittemperature = 4,
+  coolingrate = 0.5,
+  stripdis = 20,
+  maxepsilon = 0.5,
+  skeletonsize = 50,
   isphysmap = FALSE,
   recomrate = 1,
   workdir = getwd(),
@@ -22,6 +45,52 @@ polyOriginR(
 
 \item{julia_home}{Path to julia.exe, Default: ''}
 
+\item{epsilon}{genotyping error probability, Default: 0.01}
+
+\item{seqerr}{sequencing read error probability for GBS data, Default: 0.001}
+
+\item{chrpairing_phase}{chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22}
+
+\item{chrpairing}{chromosome pairing in offspring decoding, with 22 being only bivalent formations and 44 being bivalent and quadrivalent formations, Default: 44}
+
+\item{chrsubset}{subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'}
+
+\item{isparallel}{if true, multicore computing over chromosomes, Default: FALSE}
+
+\item{delmarker}{if true, delete markers during parental phasing, Default: TRUE}
+
+\item{delsiglevel}{significance level for deleting markers, Default: 0.05}
+
+\item{maxstuck}{the max number of consecutive iterations that are rejected in a phasing run, Default: 5}
+
+\item{maxiter}{the max number of iterations in a phasing run, Default: 30}
+
+\item{minrun}{if the min number of phasing runs that are at the same local maximimum or have the same parental phases reaches minrun, phasing algorithm will stop before reaching the maxrun, Default: 3}
+
+\item{maxrun}{the max number of phasing runs, Default: 10}
+
+\item{byparent}{if true, update parental phases parent by parent, Default: TRUE}
+
+\item{refhapfile}{reference haplotype file for setting absolute parental phases, Default: 'nothing'}
+
+\item{correctthreshold}{a candidate marker is selected for parental error correction if the fraction of offspring genotypic error >= correctthreshold, Default: 0.15}
+
+\item{refinemap}{if true, refine marker map, Default: FALSE}
+
+\item{refineorder}{if true, refine marker mordering, valid only if refinemap=true, Default: FALSE}
+
+\item{maxwinsize}{max size of sliding windown in map refinning, Default: 50}
+
+\item{inittemperature}{initial temperature of simulated annealing in map refinning, Default: 4}
+
+\item{coolingrate}{cooling rate of annealing temperature in map refinning, Default: 0.5}
+
+\item{stripdis}{a chromosome end in map refinement is removed if it has a distance gap > stripdis(centiMorgan) and it contains less than 5\% markers, Default: 20}
+
+\item{maxepsilon}{markers in map refinement are removed it they have error rates > maxepsilon, Default: 0.5}
+
+\item{skeletonsize}{the number of markers in the skeleton map that is used to reduce map length inflation by subsampling markers, Default: 50}
+
 \item{isphysmap}{TRUE, if input marker map in genofile is physical map, Default: FALSE}
 
 \item{recomrate}{Recombination rate in cM/Mpb, Default: 1}
@@ -35,8 +104,8 @@ polyOriginR(
 \value{
 Return 0 if sucess, and save four output files:
 log file: outstem.log,
-outstem_parentphased.csv
-outstem_parentphased_corrected.csv (if there exist detected errors)
+outstem_parentphased.csv,
+outstem_parentphased_corrected.csv (if there exist detected errors),
 outstem_genoprob.csv, and
 outstem_polyancestry.csv.
 }
@@ -44,14 +113,10 @@ outstem_polyancestry.csv.
 Haplotype reconstruction in polyploid multiparental populations
 }
 \details{
-DETAILS
 PolyOriginR is implemented via PolyOriginCmd that using PolyOrigin.jl by a command line.
 }
 \examples{
 \dontrun{
-if(interactive()){
- #EXAMPLE1
- polyOriginR("geno.csv","ped.csv",julia_home="C:/path/tojulia",workdir="workdir")
- }
+  polyOriginR("geno.csv","ped.csv",julia_home="C:/path/tojulia",workdir="workdir")
 }
 }
