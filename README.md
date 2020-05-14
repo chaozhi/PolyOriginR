@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-PolyOriginR is a wrapper for using PolyOrigin.jl (https://github.com/chaozhi/PolyOrigin.jl), for haplotye reconstruction in polyploid multiparental pouplations. 
+PolyOriginR is a wrapper of PolyOrigin.jl (https://github.com/chaozhi/PolyOrigin.jl), for haplotye reconstruction in polyploid multiparental pouplations. 
 
 ## Installation
 
