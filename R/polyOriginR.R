@@ -9,7 +9,7 @@
 #' @param chrpairing_phase chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22
 #' @param chrpairing chromosome pairing in offspring decoding, with 22 being only bivalent formations and 44 being bivalent and quadrivalent formations, Default: 44
 #' @param chrsubset subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'
-#' @param nworker number of parallel workers for computing among chromosomes, Default: 1
+#' @param nworker number of parallel workers for computing among chromosomes, nonparallel if nworker=1, Default: 1
 #' @param delsiglevel significance level for deleting markers, Default: 0.05
 #' @param maxstuck the max number of consecutive iterations that are rejected in a phasing run, Default: 5
 #' @param maxiter the max number of iterations in a phasing run, Default: 30
