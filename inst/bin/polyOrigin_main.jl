@@ -72,10 +72,10 @@ function parse_commandline()
             e.g, \"[2,10]\" denotes the second and tenth chromosomes"
             arg_type = String
             default = "nothing"
-        "--isparallel"
-            help = "if true, multicore computing over chromosomes"
-            arg_type = Bool
-            default = false
+        "--nworker"
+            help = "number of parallel workers for computing among chromosomes"
+            arg_type = Int
+            default = 1
         "--delsiglevel"
             help = "if true, delete markers during parental phasing"
             arg_type = Float64
@@ -192,6 +192,16 @@ function main(args::Vector{String})
     delete!(parsed_args,:genofile)
     delete!(parsed_args,:pedfile)
     push!(parsed_args,:logfile=>logfile)
+    nworker = parsed_args[:nworker]
+    isparallel = nworker <=1 ? false : true
+    if isparallel
+        tryusing("Distributed")
+        addprocs(nworker) # add worker processes on local machine
+        @info string("#parallel worker =",nworkers())
+        @eval  @everywhere using PolyOrigin
+    end
+    delete!(parsed_args,:nworker)
+    push!(parsed_args,:isparallel=>isparallel)
     a=parsed_args[:chrsubset]
     if a != nothing && occursin("[",a)  && occursin("]",a)
         parsed_args[:chrsubset]=string2vec(a,Int)
@@ -200,6 +210,9 @@ function main(args::Vector{String})
     workdir = parsed_args[:workdir]
     outfiles = filter(x->occursin(outstem,x), readdir(workdir))
     verbose && println("output files: ", join(outfiles,","))
+    if isparallel
+        rmprocs(workers()...)
+    end
     return 0
 end
 

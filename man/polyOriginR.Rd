@@ -13,7 +13,7 @@ polyOriginR(
   chrpairing_phase = 22,
   chrpairing = 44,
   chrsubset = "nothing",
-  isparallel = FALSE,
+  nworker = 1,
   delsiglevel = 0.05,
   maxstuck = 5,
   maxiter = 30,
@@ -54,7 +54,7 @@ polyOriginR(
 
 \item{chrsubset}{subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'}
 
-\item{isparallel}{if TRUE, multicore computing over chromosomes, Default: FALSE}
+\item{nworker}{number of parallel workers for computing among chromosomes, nonparallel if nworker=1, Default: 1}
 
 \item{delsiglevel}{significance level for deleting markers, Default: 0.05}
 

@@ -9,7 +9,7 @@
 #' @param chrpairing_phase chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22
 #' @param chrpairing chromosome pairing in offspring decoding, with 22 being only bivalent formations and 44 being bivalent and quadrivalent formations, Default: 44
 #' @param chrsubset subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'
-#' @param isparallel if TRUE, multicore computing over chromosomes, Default: FALSE
+#' @param nworker number of parallel workers for computing among chromosomes, Default: 1
 #' @param delsiglevel significance level for deleting markers, Default: 0.05
 #' @param maxstuck the max number of consecutive iterations that are rejected in a phasing run, Default: 5
 #' @param maxiter the max number of iterations in a phasing run, Default: 30
@@ -48,7 +48,7 @@
 polyOriginR <- function(genofile,pedfile,julia_home = "",
               epsilon=0.01, seqerr=0.001,
               chrpairing_phase=22, chrpairing=44, chrsubset="nothing",
-              isparallel=FALSE, delsiglevel=0.05,
+              nworker=1, delsiglevel=0.05,
               maxstuck=5,maxiter=30,minrun=3,maxrun=10,
               byparent=TRUE, refhapfile = "nothing",
               correctthreshold=0.15,
@@ -68,7 +68,6 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   workdir2 <- paste0("\"",workdir,"\"")
   recomrate2 <- format(recomrate,nsmall=3)
   # bool options
-  isparallel2<- if (isparallel) "true" else "false"
   refinemap2<- if (refinemap) "true" else "false"
   refineorder2<- if (refineorder) "true" else "false"
   byparent2 <- if (byparent) "true" else "false"
@@ -76,7 +75,7 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   verbose2 <- if (verbose) "true" else "false"
   opt <- paste("--epsilon",epsilon,"--seqerr",seqerr,
     "--chrpairing_phase",chrpairing_phase,"--chrpairing",chrpairing,
-    "--chrsubset",chrsubset,"--isparallel",isparallel2,
+    "--chrsubset",chrsubset,"--nworker",nworker,
     "--delsiglevel",delsiglevel,
     "--maxstuck",maxstuck,"--maxiter",maxiter,
     "--minrun",minrun,"--maxrun",maxrun,
