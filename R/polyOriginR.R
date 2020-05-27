@@ -8,7 +8,8 @@
 #' @param seqerr sequencing read error probability for GBS data, Default: 0.001
 #' @param chrpairing_phase chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22
 #' @param chrpairing chromosome pairing in offspring decoding, with 22 being only bivalent formations and 44 being bivalent and quadrivalent formations, Default: 44
-#' @param chrsubset subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'
+#' @param chrsubset subset of chromosomes, c(1,10) denotes first and tenth chromosomes, and NULL for all chromosomes, Default: NULL
+#' @param snpthin subset of markers, take every snpthin-th markers, Default: 1
 #' @param nworker number of parallel workers for computing among chromosomes, nonparallel if nworker=1, Default: 1
 #' @param delsiglevel significance level for deleting markers, Default: 0.05
 #' @param maxstuck the max number of consecutive iterations that are rejected in a phasing run, Default: 5
@@ -47,7 +48,7 @@
 #' @export 
 polyOriginR <- function(genofile,pedfile,julia_home = "",
               epsilon=0.01, seqerr=0.001,
-              chrpairing_phase=22, chrpairing=44, chrsubset="nothing",
+              chrpairing_phase=22, chrpairing=44, chrsubset=NULL,
               nworker=1, delsiglevel=0.05,
               maxstuck=5,maxiter=30,minrun=3,maxrun=10,
               byparent=TRUE, refhapfile = "nothing",
@@ -67,6 +68,7 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   pedfile2 <- paste0("\"",pedfile2,"\"")
   workdir2 <- paste0("\"",workdir,"\"")
   recomrate2 <- format(recomrate,nsmall=3)
+  chrsubset2 <- if (is.null(chrsubset)) "nothing" else paste0("[",paste(chrsubset, collapse=","),"]")
   # bool options
   refinemap2<- if (refinemap) "true" else "false"
   refineorder2<- if (refineorder) "true" else "false"
@@ -75,7 +77,7 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   verbose2 <- if (verbose) "true" else "false"
   opt <- paste("--epsilon",epsilon,"--seqerr",seqerr,
     "--chrpairing_phase",chrpairing_phase,"--chrpairing",chrpairing,
-    "--chrsubset",chrsubset,"--nworker",nworker,
+    "--chrsubset",chrsubset2,"--nworker",nworker,
     "--delsiglevel",delsiglevel,
     "--maxstuck",maxstuck,"--maxiter",maxiter,
     "--minrun",minrun,"--maxrun",maxrun,
@@ -93,3 +95,4 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   cat("Assembled command line: ",cmdstr,file=logfile,sep="\n",append=TRUE)
   return(0)
 }
+

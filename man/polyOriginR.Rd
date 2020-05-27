@@ -12,7 +12,8 @@ polyOriginR(
   seqerr = 0.001,
   chrpairing_phase = 22,
   chrpairing = 44,
-  chrsubset = "nothing",
+  chrsubset = NULL,
+  snpthin = 1,
   nworker = 1,
   delsiglevel = 0.05,
   maxstuck = 5,
@@ -52,7 +53,9 @@ polyOriginR(
 
 \item{chrpairing}{chromosome pairing in offspring decoding, with 22 being only bivalent formations and 44 being bivalent and quadrivalent formations, Default: 44}
 
-\item{chrsubset}{subset of chromosomes, with nothing denoting all chromosomes, Default: 'nothing'}
+\item{chrsubset}{subset of chromosomes, c(1,10) denotes first and tenth chromosomes, and NULL for all chromosomes, Default: NULL}
+
+\item{snpthin}{subset of markers, take every snpthin-th markers, Default: 1}
 
 \item{nworker}{number of parallel workers for computing among chromosomes, nonparallel if nworker=1, Default: 1}
 
