@@ -48,7 +48,8 @@
 #' @export 
 polyOriginR <- function(genofile,pedfile,julia_home = "",
               epsilon=0.01, seqerr=0.001,
-              chrpairing_phase=22, chrpairing=44, chrsubset=NULL,
+              chrpairing_phase=22, chrpairing=44, 
+              chrsubset=NULL,snpthin=1,
               nworker=1, delsiglevel=0.05,
               maxstuck=5,maxiter=30,minrun=3,maxrun=10,
               byparent=TRUE, refhapfile = "nothing",
@@ -77,7 +78,8 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   verbose2 <- if (verbose) "true" else "false"
   opt <- paste("--epsilon",epsilon,"--seqerr",seqerr,
     "--chrpairing_phase",chrpairing_phase,"--chrpairing",chrpairing,
-    "--chrsubset",chrsubset2,"--nworker",nworker,
+    "--chrsubset",chrsubset2,"--snpthin",snpthin,
+    "--nworker",nworker,
     "--delsiglevel",delsiglevel,
     "--maxstuck",maxstuck,"--maxiter",maxiter,
     "--minrun",minrun,"--maxrun",maxrun,
@@ -95,4 +97,3 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
   cat("Assembled command line: ",cmdstr,file=logfile,sep="\n",append=TRUE)
   return(0)
 }
-
