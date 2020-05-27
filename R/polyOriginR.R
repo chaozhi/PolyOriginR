@@ -39,7 +39,7 @@
 #' outstem_genoprob.csv, and
 #' outstem_polyancestry.csv.
 #' @details 
-#' PolyOriginR is implemented via PolyOriginCmd that using PolyOrigin.jl by a command line.
+#' PolyOriginR is implemented via PolyOriginCmd, which uses PolyOrigin.jl by a command line.
 #' @examples 
 #' \dontrun{
 #'   polyOriginR("geno.csv","ped.csv",julia_home="C:/path/to/bin",workdir="workdir")

@@ -113,7 +113,7 @@ outstem_polyancestry.csv.
 Haplotype reconstruction in polyploid multiparental populations
 }
 \details{
-PolyOriginR is implemented via PolyOriginCmd that using PolyOrigin.jl by a command line.
+PolyOriginR is implemented via PolyOriginCmd, which uses PolyOrigin.jl by a command line.
 }
 \examples{
 \dontrun{
