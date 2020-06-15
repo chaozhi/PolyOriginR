@@ -3,7 +3,7 @@
 #' @description Haplotype reconstruction in polyploid multiparental populations
 #' @param genofile Input genotypic data for parents and offspring
 #' @param pedfile Input breeding pedigree
-#' @param julia_home Path to julia.exe, Default: ''
+#' @param julia_path Path to julia, Default: ''
 #' @param epsilon genotyping error probability, Default: 0.01
 #' @param seqerr sequencing read error probability for GBS data, Default: 0.001
 #' @param chrpairing_phase chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22
@@ -46,7 +46,7 @@
 #' }
 #' @rdname polyOriginR
 #' @export 
-polyOriginR <- function(genofile,pedfile,julia_home = "",
+polyOriginR <- function(genofile,pedfile,juliapath = "",
               epsilon=0.01, seqerr=0.001,
               chrpairing_phase=22, chrpairing=44, 
               chrsubset=NULL,snpthin=1,
@@ -59,11 +59,12 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
               stripdis=20, maxepsilon=0.5,skeletonsize=50,
               isphysmap = FALSE, recomrate = 1.0,
               workdir=getwd(),outstem = "outstem",verbose = TRUE){
+  
+  ## Getting OS
   genofile2 = if (dirname(genofile) == ".") file.path(workdir,genofile) else normalizePath(genofile)
   pedfile2 = if (dirname(pedfile) == ".") file.path(workdir,pedfile) else normalizePath(pedfile)
-  juliaexe <- file.path(julia_home,"julia.exe")
   mainfile <- file.path(path.package("PolyOriginR"),"bin","polyOrigin_main.jl")
-  # juliaexe <- paste0("\"",juliaexe,"\""); resulting in errors
+  juliaexe <- paste0("\"",juliapath,"\"")
   mainfile <- paste0("\"",mainfile,"\"")
   genofile2 <- paste0("\"",genofile2,"\"")
   pedfile2 <- paste0("\"",pedfile2,"\"")
@@ -92,8 +93,8 @@ polyOriginR <- function(genofile,pedfile,julia_home = "",
     "--isphysmap",isphysmap2,"--recomrate",recomrate2,
     "-w",workdir2,"-o",outstem,"-v",verbose2)
   cmdstr <- paste(juliaexe, mainfile,"-g",genofile2,"-p",pedfile2, opt)
-  shell(cmdstr)
+  system(cmdstr)
   logfile <-file.path(workdir,paste0(outstem,".log"))
   cat("Assembled command line: ",cmdstr,file=logfile,sep="\n",append=TRUE)
-  return(0)
+  return()
 }
