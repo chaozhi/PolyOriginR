@@ -7,7 +7,7 @@
 polyOriginR(
   genofile,
   pedfile,
-  julia_home = "",
+  juliapath = "",
   epsilon = 0.01,
   seqerr = 0.001,
   chrpairing_phase = 22,
@@ -42,8 +42,6 @@ polyOriginR(
 \item{genofile}{Input genotypic data for parents and offspring}
 
 \item{pedfile}{Input breeding pedigree}
-
-\item{julia_home}{Path to julia.exe, Default: ''}
 
 \item{epsilon}{genotyping error probability, Default: 0.01}
 
@@ -100,6 +98,8 @@ polyOriginR(
 \item{outstem}{Stem of output files, Default: 'outstem'}
 
 \item{verbose}{TURE, if print details, Default: TRUE}
+
+\item{julia_path}{Path to julia, Default: ''}
 }
 \value{
 Return 0 if sucess, and save four output files:
