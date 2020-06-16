@@ -1,12 +1,16 @@
 Package: PolyOriginR
 Title: R wrapper for using PolyOrigin.jl
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
-    person(given = "Chaozhi",
+    c(person(given = "Chaozhi",
            family = "Zheng",
-           role = c("aut", "cre"),
+           role = c("aut","cre"),
            email = "chaozhi.zheng@wur.nl",
-           comment = c(ORCID = "https://orcid.org/0000-0001-6030-3933"))
+           comment = c(ORCID = "https://orcid.org/0000-0001-6030-3933")),
+    person(given = "Rodrigo",
+           family = "Amadeu",
+           role = c("aut"),
+           email = "rramadeu@ufl.edu"))
 Description: Haplotype reconstruction in polyploid multiparetnal populations
 License: GPL 3.0
 Encoding: UTF-8

@@ -11,5 +11,10 @@ Haplotype reconstruction in polyploid multiparetnal populations
 \author{
 \strong{Maintainer}: Chaozhi Zheng \email{chaozhi.zheng@wur.nl} (\href{https://orcid.org/0000-0001-6030-3933}{ORCID})
 
+Authors:
+\itemize{
+  \item Rodrigo Amadeu \email{rramadeu@ufl.edu}
+}
+
 }
 \keyword{internal}
