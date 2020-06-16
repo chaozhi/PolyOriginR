@@ -108,12 +108,16 @@ Argument      |Description
 ## Value
 
 
- Return 0 if sucess, and save four output files:
- log file: outstem.log
- outstem_doseprob.csv: posterior dosage probabilities for all offspring
- outstem_parentphased.csv: same as input genofile except parents being phased
- outstem_parentphased_corrected.csv, if there exist detected errors)
- outstem_polyancestry.csv: estimation of chr. paring and conditional probability
- outstem_genoprob.csv: a simplified version of outstem_polyancestry.csv
+ Return 0 if sucess, and save four output files
+ 
+ Argument      |Description
+------------- |----------------
+```outstem.log```     |  log file
+```outstem_doseprob.csv```     |  posterior dosage probabilities for all offspring
+```outstem_parentphased.csv```     |  same as input genofile except parents being phased
+```outstem_parentphased_corrected.csv```     |  if there exist detected errors
+```outstem_polyancestry.csv```     |  genoproby and estimation of chr. paring 
+```outstem_genoprob.csv```     |  a simplified version of outstem_polyancestry.csv
 
+Here outstem_doseprob.csv, outstem_parentphased.csv, and outstem_parentphased_corrected.csv can be iteratively used as input genofile, so that the step of parental phasing will be skipped. 
 
