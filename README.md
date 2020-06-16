@@ -121,4 +121,10 @@ Argument      |Description
 
 Here outstem_doseprob.csv, outstem_parentphased.csv, and outstem_parentphased_corrected.csv can be iteratively used as input genofile, so that the step of parental phasing will be skipped.  The outstem_doseprob.csv can be used for correcting observed genotypes and imputing missing genotypes, using an appropriate threshould. 
 
+## Citing PolyOrigin
+
+ If you use PolyOriginR in your analyses and publish your results, please cite the article:
+
+  *Zheng C, Amadeu R, Munoz P, and Endelman J. 2020. Haplotype reconstruction in tetraploid multi-parental populations. In preparation.*
+
 
