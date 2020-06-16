@@ -3,7 +3,7 @@
 #' @description Haplotype reconstruction in polyploid multiparental populations
 #' @param genofile Input genotypic data for parents and offspring
 #' @param pedfile Input breeding pedigree
-#' @param julia_path Path to julia, Default: ''
+#' @param juliapath Path to julia, Default: ''
 #' @param epsilon genotyping error probability, Default: 0.01
 #' @param seqerr sequencing read error probability for GBS data, Default: 0.001
 #' @param chrpairing_phase chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22

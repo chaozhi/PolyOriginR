@@ -19,9 +19,9 @@ devtools::install_github("chaozhi/PolyOriginR")
 
 ``` r
 library(PolyOriginR)
-polyOriginR("geno.csv","ped.csv",julia_home="C:/path/to/bin",workdir="workdir")
+polyOriginR("geno.csv","ped.csv",juliapath="C:/path/to/bin",workdir="workdir")
 ```
-Here julia_home is where julia.exe is located, and "workdir" is the directory for input and output files. See R script and input files in the "inst/example" folder. 
+Here julia_home is where julia.exe is located, and workdir is the directory for input and output files. See R script and input files in the "inst/example" folder. 
 
 
 ## Usage
@@ -30,7 +30,7 @@ Here julia_home is where julia.exe is located, and "workdir" is the directory fo
 polyOriginR(
   genofile,
   pedfile,
-  julia_home = "",
+  juliapath = "",
   epsilon = 0.01,
   seqerr = 0.001,
   chrpairing_phase = 22,
@@ -69,7 +69,7 @@ Argument      |Description
 ------------- |----------------
 ```genofile```     |     Input genotypic data for parents and offspring
 ```pedfile```     |     Input breeding pedigree
-```julia_home```     |     Path to julia.exe, Default: ''
+```juliapath```     |     Path to julia.exe, Default: ''
 ```epsilon```     |     genotyping error probability, Default: 0.01
 ```seqerr```     |     sequencing read error probability for GBS data, Default: 0.001
 ```chrpairing_phase```     |     chromosome pairing in parental phasing, with 22 being only bivalent formations and 44 being bi- and quadri-valent formations, Default: 22
@@ -108,7 +108,7 @@ Argument      |Description
 ## Value
 
 
- Return 0 if sucess, and save four output files
+ Return 0 if sucess, and export four output files.
  
  Argument      |Description
 ------------- |----------------
