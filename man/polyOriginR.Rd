@@ -33,6 +33,7 @@ polyOriginR(
   skeletonsize = 50,
   isphysmap = FALSE,
   recomrate = 1,
+  isplot = FALSE,
   workdir = getwd(),
   outstem = "outstem",
   verbose = TRUE
@@ -42,6 +43,8 @@ polyOriginR(
 \item{genofile}{Input genotypic data for parents and offspring}
 
 \item{pedfile}{Input breeding pedigree}
+
+\item{juliapath}{Path to julia, Default: ''}
 
 \item{epsilon}{genotyping error probability, Default: 0.01}
 
@@ -93,13 +96,13 @@ polyOriginR(
 
 \item{recomrate}{Recombination rate in cM/Mpb, Default: 1}
 
+\item{isplot}{TURE, if plot haploprob, Default: FALSE}
+
 \item{workdir}{Work directory, Default: getwd()}
 
 \item{outstem}{Stem of output files, Default: 'outstem'}
 
 \item{verbose}{TURE, if print details, Default: TRUE}
-
-\item{julia_path}{Path to julia, Default: ''}
 }
 \value{
 Return 0 if sucess, and save four output files:

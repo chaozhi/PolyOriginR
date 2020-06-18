@@ -29,6 +29,7 @@
 #' @param skeletonsize the number of markers in the skeleton map that is used to reduce map length inflation by subsampling markers, Default: 50
 #' @param isphysmap TRUE, if input marker map in genofile is physical map, Default: FALSE
 #' @param recomrate Recombination rate in cM/Mpb, Default: 1
+#' @param isplot TURE, if plot haploprob, Default: FALSE
 #' @param workdir Work directory, Default: getwd()
 #' @param outstem Stem of output files, Default: 'outstem'
 #' @param verbose TURE, if print details, Default: TRUE
@@ -57,7 +58,7 @@ polyOriginR <- function(genofile,pedfile,juliapath = "",
               refinemap=FALSE,refineorder=FALSE,
               maxwinsize=50,inittemperature=4,coolingrate=0.5,
               stripdis=20, maxepsilon=0.5,skeletonsize=50,
-              isphysmap = FALSE, recomrate = 1.0,
+              isphysmap = FALSE, recomrate = 1.0, isplot = FALSE, 
               workdir=getwd(),outstem = "outstem",verbose = TRUE){
   
   ## Getting OS
@@ -76,6 +77,7 @@ polyOriginR <- function(genofile,pedfile,juliapath = "",
   refineorder2<- if (refineorder) "true" else "false"
   byparent2 <- if (byparent) "true" else "false"
   isphysmap2 <- if (isphysmap) "true" else "false"
+  isplot2 <- if (isplot) "true" else "false"
   verbose2 <- if (verbose) "true" else "false"
   opt <- paste("--epsilon",epsilon,"--seqerr",seqerr,
     "--chrpairing_phase",chrpairing_phase,"--chrpairing",chrpairing,
@@ -91,7 +93,8 @@ polyOriginR <- function(genofile,pedfile,juliapath = "",
     "--coolingrate",coolingrate,"--stripdis",stripdis,
     "--maxepsilon",maxepsilon,"--skeletonsize",skeletonsize,
     "--isphysmap",isphysmap2,"--recomrate",recomrate2,
-    "-w",workdir2,"-o",outstem,"-v",verbose2)
+    "--isplot",isplot2,"-w",workdir2,
+    "-o",outstem,"-v",verbose2)
   cmdstr <- paste(juliaexe, mainfile,"-g",genofile2,"-p",pedfile2, opt)
   system(cmdstr)
   logfile <-file.path(workdir,paste0(outstem,".log"))

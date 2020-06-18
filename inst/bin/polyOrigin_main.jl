@@ -157,6 +157,10 @@ function parse_commandline()
         to reduce map length inflation by subsampling markers"
         arg_type = Int
         default = 50
+        "--isplot"
+        help = "if true, plot haploprob"
+        arg_type = Bool
+        default = false
         "--outstem", "-o"
         help = "stem of output filenames"
         arg_type = AbstractString
@@ -210,7 +214,7 @@ function main(args::Vector{String})
     if isparallel
         tryusing("Distributed")
         addprocs(nworker) # add worker processes on local machine
-        @info string("#parallel worker =", nworkers())
+        @info string("#parallel workers =", nworkers())
         @eval @everywhere using PolyOrigin
     end
     delete!(parsed_args, :nworker)

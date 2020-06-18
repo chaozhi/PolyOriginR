@@ -95,6 +95,7 @@ Argument      |Description
 ```skeletonsize```     |     the number of markers in the skeleton map that is used to reduce map length inflation by subsampling markers, Default: 50
 ```isphysmap```     |     TRUE, if input marker map in genofile is physical map, Default: FALSE
 ```recomrate```     |     Recombination rate in cM/Mpb, Default: 1
+```isplot```     |     TURE, if plot haploprob, Default: FALSE
 ```workdir```     |     Work directory, Default: getwd()
 ```outstem```     |     Stem of output files, Default: 'outstem'
 ```verbose```     |     TURE, if print details, Default: TRUE
@@ -118,6 +119,7 @@ Argument      |Description
 ```outstem_parentphased_corrected.csv```     |  exported if there exist detected parental errors
 ```outstem_polyancestry.csv```     |  genoprob and estimation of chromosome pairing 
 ```outstem_genoprob.csv```     |  a simplified version of outstem_polyancestry.csv
+```outstem_plots```     |  a folder contains plots of haploprob if isplot = true
 
 Here outstem_doseprob.csv, outstem_parentphased.csv, and outstem_parentphased_corrected.csv can be iteratively used as input genofile, so that the step of parental phasing will be skipped.  The outstem_doseprob.csv can be used for correcting observed genotypes and imputing missing genotypes, using an appropriate threshould. 
 
