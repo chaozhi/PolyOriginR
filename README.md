@@ -56,6 +56,7 @@ polyOriginR(
   skeletonsize = 50,
   isphysmap = FALSE,
   recomrate = 1,
+  isplot = FALSE,
   workdir = getwd(),
   outstem = "outstem",
   verbose = TRUE
@@ -109,7 +110,7 @@ Argument      |Description
 ## Value
 
 
- Return 0 if success, and export four output files.
+ Return 0 if success, and export output files.
  
  Argument      |Description
 ------------- |----------------
