@@ -1,5 +1,6 @@
 
 # devtools::install_github("chaozhi/PolyOriginR")
+# remove.packages("PolyOriginR")
 
 library(PolyOriginR)
 workdir <- file.path(path.package("PolyOriginR"),"example")
