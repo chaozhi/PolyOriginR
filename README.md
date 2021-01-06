@@ -19,9 +19,9 @@ devtools::install_github("chaozhi/PolyOriginR")
 
 ``` r
 library(PolyOriginR)
-polyOriginR("geno.csv","ped.csv",juliapath="C:/path/to/bin",workdir="workdir")
+polyOriginR("geno.csv","ped.csv",juliapath="C:/path/to/bin/julia.exe",workdir="workdir")
 ```
-Here julia_home is where julia.exe is located, and workdir is the directory for input and output files. See R script and input files in the "inst/example" folder. 
+Here juliapath is the absolute path to julia.exe, and workdir is the directory for input and output files. See R script and input files in the "inst/example" folder. 
 
 
 ## Usage
