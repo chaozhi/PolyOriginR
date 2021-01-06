@@ -8,7 +8,7 @@ PolyOriginR is a wrapper of PolyOrigin.jl (https://github.com/chaozhi/PolyOrigin
 
 ## Installation
 
-First download and install Julia available at https://julialang.org/. Then install the development version of PolyOriginR from GitHub with:
+First download and install Julia (>v1.5,64-bit)available at https://julialang.org/. Then install the development version of PolyOriginR from GitHub with:
 
 ``` r
 # install.packages("devtools")
@@ -124,6 +124,6 @@ Argument      |Description
 
  If you use PolyOriginR in your analyses and publish your results, please cite the article:
 
-  *Zheng C, Amadeu R, Munoz P, and Endelman J. 2020. Haplotype reconstruction in tetraploid multi-parental populations. Manuscript.*
+  *Zheng C, Amadeu RR, Munoz PR, and Endelman JB. 2020. Haplotype Reconstruction in Connected Tetraploid F1 Populations. https://www.biorxiv.org/content/10.1101/2020.12.18.423519v1.*
 
 
